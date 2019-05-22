@@ -1,0 +1,18 @@
+<div class="container pad-top">
+  <a ui-sref="newPerformer" class="btn-primary btn-lg nodecoration">Add New Performer</a>
+  <table class="table performertable">
+      <tr>
+          <td><h3>All Performers</h3></td>
+          <td></td>
+      </tr>
+      <tr ng-repeat="performer in performers">
+          <td>{{performer.name}}</td>
+          <td>{{performer.description}}</td>
+          <td>{{performer.graduated}}</td>
+          <td>
+              <a class="btn btn-primary" ui-sref="viewPerformer({id:performer.id})">View</a>
+              <a class="btn btn-danger"  ng-click="deletePerformer(performer)">Delete</a>
+          </td>
+      </tr>
+  </table>
+</div>

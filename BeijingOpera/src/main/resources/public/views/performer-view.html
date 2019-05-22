@@ -1,0 +1,31 @@
+<div class="container pad-top">
+  <table class="table performertable">
+      <tr>
+          <td><h3>Details for {{performer.name}}</h3></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Name</td>
+          <td>{{performer.name}} {{performer.cnname}}</td>
+      </tr>
+      <tr>
+          <td>Actor/Actress</td>
+          <td>{{performer.description}}</td>
+      </tr>
+      <tr>
+          <td>Role</td>
+          <td>{{performer.role}}</td>
+      </tr>
+      <tr>
+          <td>Year Born</td>
+          <td>{{performer.born}}</td>
+      </tr>
+      <tr>
+          <td><img src="{{performer.img2}}"></td>
+          <td><img src="{{performer.img1}}" style="width:400px;"></td>
+      </tr>
+  </table>
+  <div>
+      <a class="btn btn-primary" ui-sref="editPerformer({id:performer.id})">Edit</a>
+  </div>
+</div>
