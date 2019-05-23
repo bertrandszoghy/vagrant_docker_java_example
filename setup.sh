@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Bertrand Szoghy
+# last modified 2019-05-22
+
 echo " "
 echo "***"
 echo "Installing extra repository" 
@@ -16,7 +19,7 @@ echo " "
 sudo yum install -y ansible
 echo " "
 echo "***"
-echo "Display AAnsible version" 
+echo "Display Ansible version" 
 echo "***"
 echo " "
 ansible --version
@@ -81,17 +84,32 @@ sudo echo "PasswordAuthentication yes" >>  /etc/ssh/sshd_config
 sudo service sshd restart
 sudo chmod 600 /etc/ssh/sshd_config
 
-# next command will store the keys
+echo " "
+echo "***"
+echo "Storing the keys" 
+echo "***"
+echo " "
 sudo ssh -tt -o "StrictHostKeyChecking no" vagrant@192.168.33.20
 sudo ssh -tt -o "StrictHostKeyChecking no" vagrant@192.168.33.30
+
+echo " "
+echo "***"
+echo "Setting up the startup script" 
+echo "***"
+echo " "
+sudo cp /vagrant/dockerimages.sh /etc/init.d/dockerimages.sh
+sudo chmod 777 /etc/init.d/dockerimages.sh
+sudo chmod 777 /etc/rc.d/rc.local
+# https://www.centos.org/forums/viewtopic.php?t=48140
+sudo echo "/etc/init.d/dockerimages.sh start" >> /etc/rc.d/rc.local
+sudo echo "/etc/init.d/dockerimages.sh ansible" >> /etc/rc.d/rc.local
 
 echo " "
 echo "***"
 echo "Run ansible playbook" 
 echo "***"
 echo " "
-cd /home/vagrant/ansible-work/
-sudo ansible-playbook web_db.yaml
+sudo /etc/init.d/dockerimages.sh ansible
 
 echo " "
 echo "***"
@@ -159,8 +177,8 @@ echo "***"
 echo "Run Docker project" 
 echo "***"
 echo " "
-cd /home/vagrant/dockerjava/
-sudo ./start.sh &
+sudo docker volume create --name h20-data 
+sudo /etc/init.d/dockerimages.sh start
 
 echo " "
 echo "***"
@@ -169,7 +187,6 @@ echo "You can test the Apache web server deploy on the web VM at http://localhos
 echo "To stop docker: "
 echo "vagrant ssh ans"
 echo "sudo docker container ls"
-echo "sudo docker container stop XX where XX is the first two characters of the hex codefor the jingju image"
+echo "sudo docker container stop XX where XX is the first two characters of the hex code for the jingju image"
 echo "***"
 echo " "
-

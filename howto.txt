@@ -1,8 +1,8 @@
-An example of a Vagrant private network of CentOs VMs to test Ansible playbooks deploying Docker images containing a Java Spring app
+An example of a Vagrant private network of CentOs VMs to test Ansible playbooks
 
 Author: Bertrand Szoghy
 bertrandszoghy.wordpress.com
-last modified: 2019-05-21
+last modified: 2019-05-20
 
 Requirements:
 
@@ -11,7 +11,8 @@ Internet enabled PC.
 If you are using Windows, make sure all Windows Updates are concluded, that your sytem is up 
 to date and that no updates are pending waiting for a reboot.
 
-You will need Vagrant, Oracle Virtualbox and (on Windows) Cygwin installed. 
+You will need Vagrant, Oracle Virtualbox and (on Windows) Cygwin installed.
+
 Windows users: see https://github.com/bertrandszoghy/powershell_vagrant_install
 
 This will create a private network of 3 Linux CentOs virtual machines:
@@ -19,16 +20,12 @@ ans
 web
 db
 
-The ans machine will be the Ansible master. It will also contain Docker and Docker Compose as well as Java and Maven.
+The ans machine will be the Ansible master.
 
-On launch, the Java Spring Boot source will be copied, compiled to a self-running jar.
 
-Then a Docker image containing the jar will be built and run.
-
-A web app will be viewaable from the host (Windows) machine.
 How to use:
 
-Copy files to target folder (as an example, I used C:\Vagrantboxes\vagrant_docker_java_example).
+Copy files to target folder (as an example, I used C:\Vagrantboxes\mynetwork).
 
 On Windows:
 
@@ -36,14 +33,14 @@ Open Cygwin Terminal (or Cygwin64 Terminal for 64bit Windows)
 
 Type the commands:
 
-cd /cygdrive/c/Vagrantboxes/vagrant_docker_java_example
+cd /cygdrive/c/Vagrantboxes/mynetwork
 vagrant up
 
 On Windows you will need to accept the security prompt indicating that Virtualbox wants to alter the network adapter configuration.
 
 Be patient.
 
-An Ansible playbook will be launched, installing Apache web server on the web vm and copying over content to it. 
+An Ansible playbook will be launched, installing Apache web server on the web vm and copuying over content to it. 
 The firewall is also disabled. To test all is working: in a browser on the Windows machine, go to:
 http://localhost:8080
 
