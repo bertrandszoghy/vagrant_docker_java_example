@@ -184,14 +184,20 @@ echo " "
 echo "***"
 echo "You can test the Java Docker deploy at http://localhost:8080 on your host computer" 
 echo "You can test the Apache web server deploy on the web VM at http://localhost:8090 on your host computer" 
-echo "To log in by SSH: "
+
+echo "To log in by SSH "
 echo "  vagrant ssh ans"
-echo "To list running docker containers: "
+
+echo "To list running docker containers "
 echo "  sudo docker container ls"
-echo "To open a prompt in the container:
+
+echo "To open a prompt in the container "
 echo "  sudo docker exec -t -i <container_id> sh"
-echo "To stop docker container jingju: "
-# sudo docker container stop `sudo docker container ls | grep jingju | awk '{print $1}'`
+# where container id is `sudo docker container ls | grep jingju | awk '{print $1}'`
+
+echo "To stop docker container jingju "
 echo "   sudo docker container stop <container_id>"
+# OR sudo docker container stop `sudo docker container ls | grep jingju | awk '{print $1}'`
+
 echo "***"
 echo " "
