@@ -1,5 +1,5 @@
 # vagrant_docker_java_example
-An example of compiling a provided Java Spring Boot application and including it into a Docker container which will be compiled, run and tested on the host machine. The Docker container will be running on a Centos 7.6 Linux virtual machine in turn part of a virtual network of Oracle Virtualbox VMs orchestrated by the Vagrant tool. Everything is installed from scratch as the starting point of a continuous delivery system. In addition and as an aside, an Ansible playbook also sets up and configures an Apache web server along with port mapping to the host.
+An example of compiling a provided Java Spring Boot application and including it into a Docker container which will be compiled, run and tested in a web browser on the host machine. The Docker container will be running on a Centos 7.6 Linux virtual machine in turn part of a virtual network of Oracle Virtualbox VMs orchestrated by the Vagrant tool on a host Windows 10 laptop. Everything is installed from scratch as the starting point of a continuous delivery system. In addition and as an aside, an Ansible playbook also sets up and configures an Apache web server along with port mapping to the host.
 
 You can view a demo of this code on Youtube at https://youtu.be/tehnIInLxns
 
